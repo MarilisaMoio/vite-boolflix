@@ -1,7 +1,12 @@
 <script>
     import { store } from "../store.js"
+    import AppLanguage from "./AppLanguage.vue";
+
     export default{
         name: 'AppMain',
+        components: {
+            AppLanguage,
+        },
         data(){
             return {
                 store
@@ -15,7 +20,7 @@
         <div class="movie-card" v-for="movie in store.theseMovies">
             <div class="name">Name: {{ movie.title }}</div>
             <div class="original-name">Original name: {{ movie.original_title }}</div>
-            <div class="lang">Original language: {{ movie.original_language }}</div>
+            <AppLanguage :movieLang="movie.original_language"></AppLanguage> 
             <div class="rating">Rating: {{ movie.vote_average }}</div>
         </div>
     </div>
