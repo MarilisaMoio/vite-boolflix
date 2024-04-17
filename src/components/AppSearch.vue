@@ -15,7 +15,7 @@
     <div class="container">
         <div class="input-group">
             <input type="text" v-model="store.userInput">
-            <button type="button">Search</button>
+            <button type="button" @click="$emit('searchThisInput')">Search</button>
         </div>
     </div>
 </template>
