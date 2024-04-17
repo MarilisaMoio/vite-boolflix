@@ -1,46 +1,18 @@
 <script>
+    import { store } from "../store.js"
+
     export default{
         name: 'AppLanguage',
         props: ["movieLang"],
         data(){
             return {
+                store,
                 movieLangFlag: ""
             }
         },
         methods: {
             getEmojiFlag(movieLang){
-                console.log(movieLang)
-                const flags = [
-                    {
-                        lang: "EN",
-                        emoji: "🇬🇧"
-                    },
-                    {
-                        lang: "IT",
-                        emoji: "🇮🇹"
-                    },
-                    {
-                        lang: "FR",
-                        emoji: "🇫🇷"
-                    },
-                    {
-                        lang: "ES",
-                        emoji: "🇪🇸"
-                    },
-                    {
-                        lang: "JA",
-                        emoji: "🇯🇵"
-                    },
-                    {
-                        lang: "KO",
-                        emoji: "🇰🇷"
-                    },
-                    {
-                        lang: "DE",
-                        emoji: "🇩🇪"
-                    }
-                ];
-                flags.forEach((flag) => {
+                store.flags.forEach((flag) => {
                     if (flag.lang === movieLang.toUpperCase()){
                         this.movieLangFlag = flag.emoji;
                         console.log(this.movieLangFlag)
