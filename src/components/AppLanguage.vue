@@ -3,31 +3,30 @@
 
     export default{
         name: 'AppLanguage',
-        props: ["movieLang"],
+        props: ["mediaLang"],
         data(){
             return {
                 store,
-                movieLangFlag: ""
+                mediaLangFlag: ""
             }
         },
         methods: {
-            getEmojiFlag(movieLang){
+            getEmojiFlag(mediaLang){
                 store.flags.forEach((flag) => {
-                    if (flag.lang === movieLang.toUpperCase()){
-                        this.movieLangFlag = flag.emoji;
-                        console.log(this.movieLangFlag)
+                    if (flag.lang === mediaLang){
+                        this.mediaLangFlag = flag.emoji;
                     }
                 })
             }
         },
         mounted(){
-            this.getEmojiFlag(this.movieLang)
+            this.getEmojiFlag(this.mediaLang)
         }
     }
 </script>
 
 <template>
-    <div class="original-language">{{ movieLangFlag !== "" ? movieLangFlag : movieLang }}</div>
+    <div class="original-language">{{ mediaLangFlag !== "" ? mediaLangFlag : mediaLang }}</div>
 </template>
 
 <style scoped lang="scss">

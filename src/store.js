@@ -5,31 +5,31 @@ export const store = reactive({
     theseMovies: [],
     flags: [
         {
-            lang: "EN",
+            lang: "en",
             emoji: "🇬🇧"
         },
         {
-            lang: "IT",
+            lang: "it",
             emoji: "🇮🇹"
         },
         {
-            lang: "FR",
+            lang: "fr",
             emoji: "🇫🇷"
         },
         {
-            lang: "ES",
+            lang: "es",
             emoji: "🇪🇸"
         },
         {
-            lang: "JA",
+            lang: "ja",
             emoji: "🇯🇵"
         },
         {
-            lang: "KO",
+            lang: "ko",
             emoji: "🇰🇷"
         },
         {
-            lang: "DE",
+            lang: "de",
             emoji: "🇩🇪"
         }
     ],
