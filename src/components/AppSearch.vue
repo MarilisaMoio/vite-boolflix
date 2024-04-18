@@ -12,22 +12,32 @@
 </script>
 
 <template>
-    <div class="container">
-        <div class="input-group">
-            <input type="text" v-model="store.userInput">
-            <button type="button" @click="$emit('searchThisInput')">Search</button>
+    <header>
+        <div class="container">
+            <h1>BOOLFIX</h1>
+            <div class="input-group">
+                <input type="text" v-model="store.userInput">
+                <button type="button" @click="$emit('searchThisInput')">Search</button>
+            </div>
         </div>
-    </div>
+    </header>
 </template>
 
 <style scoped lang="scss">
     @use '../style/partials/variables' as *;
 
+    header{
+        background-color: $main-gray;
+    }
+
     .container{
         padding: 20px 10px;
         display: flex;
         align-items: flex-start;
-        justify-content: flex-end;
+        justify-content: space-between;
+    }
+    h1{
+        color: red;
     }
     .input-group{
         > * {

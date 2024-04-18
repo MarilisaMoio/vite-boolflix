@@ -15,7 +15,7 @@
                 this.numberOfStars = Math.ceil(halfRating.toFixed(1))
                 this.remainingStars = 5 - this.numberOfStars;
                 
-                console.log(this.numberOfStars, this.remainingStars)
+                return true
             }
         },
     }
@@ -23,8 +23,8 @@
 
 <template>
     <div class="rating">
-        <i v-for="n in this.numberOfStars" class="fa-solid fa-star yellow">{{ getTotalStars(this.mediaRating) }}</i>
-        <i v-for="n in this.remainingStars" class="fa-solid fa-star gray">{{ getTotalStars(this.mediaRating) }}</i>
+        <i v-for="n in this.numberOfStars" class="fa-solid fa-star yellow" v-if="getTotalStars(this.mediaRating)"></i>
+        <i v-for="n in this.remainingStars" class="fa-solid fa-star gray" v-if="getTotalStars(this.mediaRating)"></i>
     </div>
 </template>
 
