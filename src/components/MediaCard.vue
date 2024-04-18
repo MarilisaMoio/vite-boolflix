@@ -12,8 +12,8 @@
 
 <template>
     <div class="media-card">
-        <div class="name">Name: {{ media.title }}</div>
-        <div class="original-name">Original name: {{ media.original_title }}</div>
+        <div class="name">Name: {{ media.title || media.name }}</div>
+        <div class="original-name">Original name: {{ media.original_title || media.original_name }}</div>
         <AppLanguage :mediaLang="media.original_language"></AppLanguage> 
         <div class="rating">Rating: {{ media.vote_average }}</div>
     </div>

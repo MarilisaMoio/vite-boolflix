@@ -3,6 +3,7 @@ import { reactive } from "vue";
 export const store = reactive({
     userInput: "",
     theseMovies: [],
+    theseSeries: [],
     flags: [
         {
             lang: "en",

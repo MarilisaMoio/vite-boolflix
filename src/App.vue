@@ -15,7 +15,7 @@
             }
         },
         methods: {
-            getMoviesFromApi(){
+            getMediaFromApi(){
                 const queryParams = {
                     api_key: "74a3b47e7ab47502c450cd402aae77fc",
                     query: store.userInput
@@ -25,13 +25,18 @@
                 .then((response) => {
                     store.theseMovies = response.data.results
                 })
+
+                axios.get("https://api.themoviedb.org/3/search/tv", { params: queryParams })
+                .then((response) => {
+                    store.theseSeries = response.data.results
+                })
             }
         }
     }
 </script>
 
 <template>
-    <AppSearch @searchThisInput="getMoviesFromApi"></AppSearch>
+    <AppSearch @searchThisInput="getMediaFromApi"></AppSearch>
     <AppMain></AppMain>
 </template>
 

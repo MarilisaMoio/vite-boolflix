@@ -24,12 +24,13 @@
                 <div v-if="store.theseMovies.length === 0">Nessun film trovato</div>
             </div>
         </div>
-        <!-- <div class="movie-card" v-for="movie in store.theseMovies">
-            <div class="name">Name: {{ movie.title }}</div>
-            <div class="original-name">Original name: {{ movie.original_title }}</div>
-            <AppLanguage :movieLang="movie.original_language"></AppLanguage> 
-            <div class="rating">Rating: {{ movie.vote_average }}</div>
-        </div> -->
+        <div class="series">
+            <h2>Le tue serie</h2>
+            <div class="wrapper">
+                <MediaCard v-for="serie in store.theseSeries" :media="serie"></MediaCard>
+                <div v-if="store.theseSeries.length === 0">Nessuna serie TV trovato</div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -41,6 +42,9 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+    }
+    .container > * + * {
+        margin-top: 30px
     }
 
 </style>
