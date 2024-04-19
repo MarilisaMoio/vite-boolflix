@@ -2,16 +2,11 @@
     export default{
         name: 'AppRating',
         props: ["mediaRating"],
-        data(){
-            return {
-                numberOfStars: 0
-            }
-        },
         methods: {
             getTotalStars(){               
                 const halfRating = this.mediaRating / 2;
-                this.numberOfStars = Math.ceil(halfRating.toFixed(1));
-                return this.numberOfStars;
+                let numberOfStars = Math.ceil(halfRating.toFixed(1));
+                return numberOfStars;
             }
         },
     }
