@@ -41,7 +41,7 @@
 
     main{
         background-color: $second-gray;
-        min-height: 700px;
+        min-height: calc(100vh - $header-h);
         padding: 30px 0;
         color: white;
     }

@@ -32,6 +32,7 @@
 
     header{
         background-color: $main-gray;
+        height: $header-h;
     }
 
     .container{
