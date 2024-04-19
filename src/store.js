@@ -2,6 +2,7 @@ import { reactive } from "vue";
 
 export const store = reactive({
     userInput: "",
+    isAdult: false,
     theseMovies: [],
     theseSeries: [],
     flags: [

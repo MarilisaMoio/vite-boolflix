@@ -18,7 +18,8 @@
             getMediaFromApi(){
                 const queryParams = {
                     api_key: "74a3b47e7ab47502c450cd402aae77fc",
-                    query: store.userInput
+                    query: store.userInput,
+                    include_adult: store.isAdult
                 }
 
                 axios.get("https://api.themoviedb.org/3/search/movie", { params: queryParams })

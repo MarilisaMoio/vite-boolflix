@@ -16,6 +16,10 @@
         <div class="container">
             <h1>BOOLFIX</h1>
             <div class="input-group">
+                <div class="checkbox">
+                    <label for="checkbox">Adult content:</label>
+                    <input type="checkbox" id="checkbox" v-model="store.isAdult">
+                </div>
                 <input type="text" v-model="store.userInput">
                 <button type="button" @click="$emit('searchThisInput')">Search</button>
             </div>
@@ -40,10 +44,17 @@
         color: red;
     }
     .input-group{
-        > * {
+        > input, > button {
             border-radius: 0;
             border: 1px solid gray;
             padding: 6px;
+        }
+        label{
+            color: white;
+            font-size: 14px;
+        }
+        #checkbox{
+            margin: 0 5px;
         }
         button{
             border-top-right-radius: $input-radius;
