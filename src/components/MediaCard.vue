@@ -8,8 +8,8 @@
             AppLanguage,
             AppRating
         },
-        props: ["media"],
-    }
+        props: ["media"]
+    } 
 </script>
 
 <template>
@@ -74,6 +74,16 @@
                 background-color: rgba(126, 2, 2, 0.737);
                 color: white;
                 transform: rotateY(180deg);
+            }
+        }
+
+        i{
+            text-shadow: 0px 0px 2px black;
+            &.yellow{
+                color:darkorange;
+            }
+            &.gray{
+                color:lightgray
             }
         }
 </style>

@@ -7,30 +7,29 @@
         data(){
             return {
                 store,
-                mediaLangFlag: "",
                 isFlag: false
             }
         },
         methods: {
-            getEmojiFlag(mediaLang){
-                this.isFlag = false;
+            getEmojiFlag(){
+                let mediaLangFlag = this.mediaLang;
+                
                 store.flags.forEach((flag) => {
-                    if (flag.lang === mediaLang){
-                        this.isFlag = true;
-                        this.mediaLangFlag = flag.emoji;
+                    if (flag.lang === this.mediaLang){
+                        this.isFlag = true
+                        mediaLangFlag = flag.emoji
+                        console.log(this.mediaLang, flag.emoji, mediaLangFlag)
                     }
                 })
-                if (this.isFlag === false){
-                        this.mediaLangFlag = mediaLang;
-                    }
-                return true
+                
+                return mediaLangFlag;
             }
         },
     }
 </script>
 
 <template>
-    <div class="original-language" :class="{ 'flag': this.isFlag}" v-if="getEmojiFlag(this.mediaLang)">{{ this.mediaLangFlag }}</div>
+    <div class="original-language" :class="{ 'flag': this.isFlag }">{{ getEmojiFlag() }}</div>
 </template>
 
 <style scoped lang="scss">

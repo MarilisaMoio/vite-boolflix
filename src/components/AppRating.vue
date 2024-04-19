@@ -4,18 +4,14 @@
         props: ["mediaRating"],
         data(){
             return {
-                numberOfStars: 1,
-                remainingStars: 2
+                numberOfStars: 0
             }
         },
         methods: {
-            getTotalStars(rating){
-                const halfRating = rating / 2;
-                console.log(rating, halfRating)
-                this.numberOfStars = Math.ceil(halfRating.toFixed(1))
-                this.remainingStars = 5 - this.numberOfStars;
-                
-                return true
+            getTotalStars(){               
+                const halfRating = this.mediaRating / 2;
+                this.numberOfStars = Math.ceil(halfRating.toFixed(1));
+                return this.numberOfStars;
             }
         },
     }
@@ -23,8 +19,8 @@
 
 <template>
     <div class="rating">
-        <i v-for="n in this.numberOfStars" class="fa-solid fa-star yellow" v-if="getTotalStars(this.mediaRating)"></i>
-        <i v-for="n in this.remainingStars" class="fa-solid fa-star gray" v-if="getTotalStars(this.mediaRating)"></i>
+        <i v-for="n in this.getTotalStars()" class="fa-solid fa-star yellow"></i>
+        <i v-if="this.getTotalStars() < 5" v-for="n in 5 - this.getTotalStars()" class="fa-solid fa-star gray"></i>
     </div>
 </template>
 
