@@ -7,30 +7,33 @@
         data(){
             return {
                 store,
-                mediaLangFlag: ""
+                isFlag: false,
             }
         },
         methods: {
             getEmojiFlag(){
-                let isFlag = false
-                this.mediaLangFlag = this.mediaLang;
+                let mediaLangFlag = this.mediaLang;
 
                 store.flags.forEach((flag) => {
                     if (flag.lang === this.mediaLang){
-                        isFlag = true
-                        this.mediaLangFlag = flag.emoji
+                        this.isFlag = true
+                        mediaLangFlag = flag.emoji
                     }
                 })
-                console.log(this.mediaLang, isFlag, this.mediaLangFlag)
-                
-                return isFlag;
+                // spiegazione per la me del futuro:
+                // mettendo this.isFlag = false all'inizio della funzione, per qualche motivo triggerava una funzione ricorsiva
+                //che effettuava un 21 controllo su una flag spagnola (insesistente) per 101 volte
+                if (mediaLangFlag === this.mediaLang){
+                    this.isFlag = false
+                }
+                return mediaLangFlag;
             }
         },
     }
 </script>
 
 <template>
-    <div class="original-language" :class="{ 'flag': this.getEmojiFlag() }">{{ mediaLangFlag }}</div>
+    <div class="original-language" :class="{ 'flag': this.isFlag }">{{ this.getEmojiFlag() }}</div>
 </template>
 
 <style scoped lang="scss">
